@@ -1,0 +1,11 @@
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.csprojAssemblyReference.cache
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.Properties.Resources.resources
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.csproj.GenerateResource.cache
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.csproj.CoreCompileInputs.cache
+X:\Languages\C#\ColorPicker\bin\Debug\ColorPicker.exe.config
+X:\Languages\C#\ColorPicker\bin\Debug\ColorPicker.exe
+X:\Languages\C#\ColorPicker\bin\Debug\ColorPicker.pdb
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.exe
+X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.pdb
+X:\Languages\C#\ColorPicker\obj\Debug\nsColorPicker.Form1.resources
+X:\Languages\C#\ColorPicker\obj\Debug\nsColorPicker.ColorPicker.resources

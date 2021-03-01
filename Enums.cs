@@ -20,6 +20,11 @@ namespace nsColorPicker
         xyz
     }
 
+    public enum IncreaseDecrease
+    {
+        Increase,
+        Decrease
+    }
     public enum ColorFormat
     {
         RGB,

@@ -9,3 +9,4 @@ X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.exe
 X:\Languages\C#\ColorPicker\obj\Debug\ColorPicker.pdb
 X:\Languages\C#\ColorPicker\obj\Debug\nsColorPicker.Form1.resources
 X:\Languages\C#\ColorPicker\obj\Debug\nsColorPicker.ColorPicker.resources
+X:\Languages\C#\ColorPicker\obj\Debug\nsColorPicker.ColorComboBox.resources

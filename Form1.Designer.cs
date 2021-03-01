@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.colorComboBox1 = new nsColorPicker.ColorComboBox();
             this._ColorPicker1 = new nsColorPicker.ColorPicker();
             this.SuspendLayout();
             // 
@@ -51,6 +52,63 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
+            // colorComboBox1
+            // 
+            this.colorComboBox1.DecimalPlaces = ((byte)(1));
+            this.colorComboBox1.Location = new System.Drawing.Point(444, 165);
+            this.colorComboBox1.MaxValues = new decimal[] {
+        new decimal(new int[] {
+                    255,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    255,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    255,
+                    0,
+                    0,
+                    0})};
+            this.colorComboBox1.MinValues = new decimal[] {
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0})};
+            this.colorComboBox1.Name = "colorComboBox1";
+            this.colorComboBox1.seperator = "   ";
+            this.colorComboBox1.Size = new System.Drawing.Size(151, 62);
+            this.colorComboBox1.TabIndex = 4;
+            this.colorComboBox1.Values = new decimal[] {
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0}),
+        new decimal(new int[] {
+                    0,
+                    0,
+                    0,
+                    0})};
+            // 
             // _ColorPicker1
             // 
             this._ColorPicker1.AutoSize = true;
@@ -65,6 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.colorComboBox1);
             this.Controls.Add(this._ColorPicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -80,6 +139,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private ColorPicker _ColorPicker1;
+        private ColorComboBox colorComboBox1;
     }
 }
 

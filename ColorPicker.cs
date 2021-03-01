@@ -33,6 +33,24 @@ namespace nsColorPicker
             }
         }
 
+        public _Color AbsoluteColor
+        {
+            get
+            {
+                return absoluteColor;
+            }
+            private set
+            {
+                if (absoluteColor != value)
+                {
+                    absoluteColor = value;
+                    colorBox.SelectedColor = selectedColor;
+                    colorSlider.SelectedColor = selectedColor;
+                    OnColorChanged();
+                }
+            }
+        }
+
         public DrawStyles DrawStyle
         {
             get
@@ -50,6 +68,7 @@ namespace nsColorPicker
         [DefaultValue(DrawStyles.HSBHue)]
         private DrawStyles drawStyle = DrawStyles.HSBHue;
         private _Color selectedColor;
+        private _Color absoluteColor;
         private ColorPickerBox colorBox;
         private ColorPickerSlider colorSlider;
         public ColorPicker()
@@ -64,17 +83,19 @@ namespace nsColorPicker
         private void ColorSlider_ColorChanged(object sender, ColorEventArgs e)
         {
             SelectedColor = e.Color;
+            absoluteColor = e.AbsoluteColor;
         }
 
         private void ColorBox_ColorChanged(object sender, ColorEventArgs e)
         {
             SelectedColor = e.Color;
+            absoluteColor = e.AbsoluteColor;
         }
 
         private void OnColorChanged()
         {
             if(ColorChanged != null)
-                ColorChanged(this, new ColorEventArgs(selectedColor, DrawStyles.HSBHue));
+                ColorChanged(this, new ColorEventArgs(selectedColor, absoluteColor, DrawStyles.HSBHue));
         }
 
         private void InitializeComponent()

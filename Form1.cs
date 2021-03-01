@@ -28,12 +28,28 @@ namespace nsColorPicker
             label2.Height = 50;
 
             _ColorPicker1.ColorChanged += OnColorChanged;
+            /*foreach(var a in colorComboBox1.Values)
+            {
+                Console.WriteLine(a);
+            }*/
+            //colorComboBox1.Values = colorComboBox1.Values;
+
         }
 
         private void OnColorChanged(object sender, ColorEventArgs e)
         {
-            label1.Text = _ColorPicker1.SelectedColor.xyz.ToString();
-            label2.BackColor = _ColorPicker1.SelectedColor.xyz;
+            if (_ColorPicker1.DrawStyle == DrawStyles.xyz)
+            {
+                label1.Text = _ColorPicker1.AbsoluteColor.xyz.ToString();
+                label2.BackColor = _ColorPicker1.AbsoluteColor;
+                colorComboBox1.Values = new decimal[] { _ColorPicker1.AbsoluteColor.argb.R, _ColorPicker1.AbsoluteColor.argb.G, _ColorPicker1.AbsoluteColor.argb.B };
+            }
+            else
+            {
+                label1.Text = _ColorPicker1.SelectedColor.argb.ToString();
+                label2.BackColor = _ColorPicker1.SelectedColor;
+                colorComboBox1.Values = new decimal[] { _ColorPicker1.SelectedColor.argb.R, _ColorPicker1.SelectedColor.argb.G, _ColorPicker1.SelectedColor.argb.B };
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

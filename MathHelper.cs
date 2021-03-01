@@ -14,5 +14,25 @@ namespace nsColorPicker
             if (num.CompareTo(max) >= 0) return max;
             return num;
         }
+        public static decimal Truncate(decimal d, byte decimals)
+        {
+            decimal r = Math.Round(d, decimals);
+
+            if (d > 0 && r > d)
+            {
+                return r - new decimal(1, 0, 0, false, decimals);
+            }
+            else if (d < 0 && r < d)
+            {
+                return r + new decimal(1, 0, 0, false, decimals);
+            }
+
+            return r;
+        }
+
+        public static decimal ExtendToXZeros(decimal d, byte zeros)
+        {
+            return Truncate(Decimal.Add(d, new decimal(0, 0, 0, false, zeros)), zeros);
+        }
     }
 }

@@ -52,6 +52,30 @@ namespace nsColorPicker
             }
         }
 
+        public _Color AbsoluteColor
+        {
+            get
+            {
+                return absoluteColor;
+            }
+
+            private set
+            {
+                absoluteColor = value;
+
+                if (this is ColorPickerBox)
+                {
+                    SetBoxMarker();
+                }
+                else
+                {
+                    SetSliderMarker();
+                }
+
+                Invalidate();
+            }
+        }
+
         public DrawStyles DrawStyle
         {
             get
@@ -79,6 +103,7 @@ namespace nsColorPicker
 
         protected DrawStyles drawStyle;
         protected _Color selectedColor;
+        protected _Color absoluteColor = Color.White;
         protected Point lastClicked;
         protected int clientWidth, clientHeight;
         protected bool isLeftClicking;
@@ -317,10 +342,9 @@ namespace nsColorPicker
                     break;
 
                 case DrawStyles.xyz:
-/*                    XYZ tmp = bmp.GetPixel(lastClicked.X, lastClicked.Y);
-                    //Console.WriteLine(tmp);
-                    selectedColor.xyz.Y = tmp.Y;
-                    selectedColor.xyz.Z = tmp.Z;*/
+                    // get the pixel from the bitmap to display to the user, but keep the selected color as the calculation so the cursor moves correctly
+                    absoluteColor = bmp.GetPixel(lastClicked.X.Clamp(0, clientWidth - 1), lastClicked.Y.Clamp(0, clientHeight - 1));
+                    absoluteColor.UpdateXYZ();
 
                     // this isn't very accurate to the color under the cursor 
                     selectedColor.xyz.Y = (float)(100.0 * ((double)lastClicked.X / clientWidth));
@@ -377,8 +401,8 @@ namespace nsColorPicker
                     break;
 
                 case DrawStyles.xyz:
-/*                    XYZ tmp = bmp.GetPixel(lastClicked.X, lastClicked.Y);
-                    selectedColor.xyz.X = tmp.X;*/
+                    // just don't even touch the absolute color, let the user move the box slider again to get the value off of white
+
                     selectedColor.xyz.X = (float)(150 - (150.0 * ((double)lastClicked.Y / clientHeight)));
                     selectedColor.UpdateXYZ();
                     break;
@@ -492,8 +516,9 @@ namespace nsColorPicker
 
         private void OnColorChanged()
         {
+            Console.WriteLine(this.absoluteColor.argb);
             if(ColorChanged != null)
-                ColorChanged(this, new ColorEventArgs(this.selectedColor, this.drawStyle));
+                ColorChanged(this, new ColorEventArgs(this.selectedColor, this.absoluteColor, this.drawStyle));
         }
     }
 }
